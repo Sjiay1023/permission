@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sjiay.permission.mapper.DemoMapper">
+
+    <select id="getUser" resultType="com.sjiay.permission.entity.DemoEntity">
+        SELECT * FROM girl
+    </select>
+
+    <insert id="register" parameterType="String">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into user (username, password)
+        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    </insert>
+</mapper>

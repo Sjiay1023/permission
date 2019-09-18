@@ -1,0 +1,50 @@
+server:
+  servlet:
+    context-path: /permission
+  port: 8080
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT
+  application:
+    name: permission
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ssm?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: root
+    druid:
+      initial-size: 3
+      min-idle: 3
+      max-active: 10
+      max-wait: 60000
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 2000
+  redis:
+    database: 0
+    host: 192.168.46.128
+    port: 6379
+    password: 123456
+
+
+mybatis:
+  type-aliases-package: com.sjiay.security.permission.entity
+  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+#自定义参数，可以迁移走
+token:
+  #token失效时间（不是refreshToken）(这是自定义的)(秒)
+  expirationSeconds: 300
+  #默认7天登录有效(根据业务更改)
+  validTime: 7
+
