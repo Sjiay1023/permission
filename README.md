@@ -1,0 +1,12 @@
+# permission
+springsecurity+redis
+本项目主要是利用token作为前后端交互的身份验证信息，通过设置token的刷新时间保证token的安全性，同时将token放入redis，
+并建立黑名单，多重保障下确保安全性； Spring Security实现对用户的认证授权（本项目尚未实现权限细化处理）
+AjaxAccessDeniedHandler处理无权访问的情况，直接向前端响应返回相应的json字符串。AjaxAuthenticationEntryPoint处理未登录的情况；
+AjaxAuthenticationFailureHandler处理登录失败的情况；AjaxAuthenticationSuccessHandler处理登录成功的情况，
+同时生成token，并且把用户登录信息，如ip地址、用户名、登录时间、有效时间保存至redis中。
+AjaxLogoutSuccessHandler处理登出成功的情况，在登出的同时，把当前用户的token放入redis黑名单中。
+JwtAuthenticationTokenFilter基础Spring的OncePerRequestFilter实现每一次请求的过滤。
+在每次过滤的时候，我们从请求头取出token，验证ip是否与当前ip一致。如果不一致，那么进行黑名单验证，
+如果token在黑名单中，则本次请求不通过。接着验证token是否过期，如果token过期了，则去redis中取出过期时间，
+如果仍在有效时间内，则刷新token，并放入到请求头中。
