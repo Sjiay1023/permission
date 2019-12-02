@@ -56,6 +56,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             //进入黑名单验证
             if (redisUtil.isBlackList(authToken)) {
                 log.info("用户：{}的token：{}在黑名单之中，拒绝访问",username,authToken);
+                response.setCharacterEncoding("utf-8");
                 response.getWriter().write(JSON.toJSONString(ResultVO.result(ResultEnum.TOKEN_IS_BLACKLIST, false)));
                 return;
             }

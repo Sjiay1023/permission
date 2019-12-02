@@ -13,8 +13,6 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * @author: zzx
- * @date: 2018/10/16 9:06
  * @description: jwt生成token
  */
 public class JwtTokenUtil {

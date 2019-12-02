@@ -8,9 +8,7 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * @author: zzx
- * @date: 2018/10/15 16:58
- * @description: 定义user对象
+ *  定义user对象
  */
 public class SelfUserDetails implements UserDetails, Serializable {
     private static final long serialVersionUID = 7171722954972237961L;

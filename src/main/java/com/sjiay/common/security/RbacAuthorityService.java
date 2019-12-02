@@ -10,8 +10,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author: zzx
- * @date: 2018/10/16 9:54
  * @description: 权限访问控制
  */
 @Component("rbacauthorityservice")
@@ -29,6 +27,7 @@ public class RbacAuthorityService {
             //获取资源
             Set<String> urls = new HashSet();
             // 这些 url 都是要登录后才能访问，且其他的 url 都不能访问！
+            //application.yml里设置的context-path
             urls.add("/permission/**");
             Set set2 = new HashSet();
             Set set3 = new HashSet();

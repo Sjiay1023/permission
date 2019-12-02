@@ -17,6 +17,11 @@ import java.util.Map;
 public class DemoController {
     @Autowired
     private DemoService demoService;
+
+    /**
+     * 获取User列表
+     * @return
+     */
     @RequestMapping("/getUser")
     public List<DemoEntity> getUser(){
         List<DemoEntity> result = demoService.getUser();

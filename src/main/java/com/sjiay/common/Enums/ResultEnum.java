@@ -29,11 +29,10 @@ public enum ResultEnum {
     public String getMessage() {
         return message;
     }
-
     /**
-     * @author: zzx
-     * @date: 2018-10-15 16:26
-     * @deprecation:通过code返回枚举
+     * 通过code返回枚举
+     * @param code
+     * @return
      */
     public static ResultEnum parse(int code){
         ResultEnum[] values = values();

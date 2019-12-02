@@ -9,11 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author: zzx
- * @date: 2018/10/15 15:00
  * @description: 返回的格式
  */
-
 public final class ResultVO implements Serializable {
 
     private static final long serialVersionUID = 1725159680599612404L;
@@ -27,8 +24,8 @@ public final class ResultVO implements Serializable {
      * @return
      */
     public final static  Map<String, Object> success(String message, Object data,String jwtToken,Boolean success) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("jwtToken",jwtToken);
+            Map<String, Object> map = new HashMap<>();
+            map.put("jwtToken",jwtToken);
         map.put("code", ResultEnum.SUCCESS.getCode());
         map.put("message", message);
         map.put("success",success);

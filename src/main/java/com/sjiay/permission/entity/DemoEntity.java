@@ -1,5 +1,6 @@
 package com.sjiay.permission.entity;
 
+
 public class DemoEntity {
     private Integer id;
     private Integer age;
